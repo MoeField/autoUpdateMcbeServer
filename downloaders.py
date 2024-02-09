@@ -1,12 +1,11 @@
 import os
-
-from concurrent.futures import ThreadPoolExecutor, as_completed
+#from concurrent.futures import ThreadPoolExecutor, as_completed
 import requests
 
 import ssl
 ssl._create_default_https_context = ssl._create_unverified_context
 
-from rich.progress import track
+#from rich.progress import track
 import time
 
 import threading

@@ -1,10 +1,14 @@
 import findDlUrls
 from downloaders import multDownload
+from DrissionPage import SessionPage
+from DownloadKit import DownloadKit
+import wget
 
 import zipfile
 import os
 
-
+dlver='win'
+metN=0
 
 if __name__ == '__main__':
   serverVersions = ["win","linux","win-preview","linux-preview"]
@@ -28,10 +32,21 @@ if __name__ == '__main__':
     print('start downloading')
   retval = os.getcwd()
   print("当前工作目录为 %s" % retval)
-
-  #wget.download(urls['win'], version)
-  multDownload(urls['win'], version, thr=64)
-
+  
+  #download the file
+  if metN==0:
+    wget.download(urls[dlver], version)
+  elif metN==1:
+    multDownload(urls[dlver], version, thr=64)
+  elif metN==2:
+    d = DownloadKit('./download')
+    d.download(urls[dlver])
+  elif metN==3:
+    page = SessionPage()
+    page.download.set.block_size('1m')
+    res = page.download.add(urls[dlver], version)
+    print(res)
+  
   #unzip the file
   print(f'unzip the file:{version}')
   os.chdir('../download')
