@@ -38,7 +38,10 @@ def downloader(url, path):
 def multDownload(url,saveName,thr=50):
   start = time.time()
   _fsize = 0
-  os.mkdir("_tmp")
+  try:
+    os.mkdir("_tmp")
+  except FileExistsError:
+    pass
   def downloadPrt(no,url,st,ed):
     headers = {'Range': f'bytes={st}-{ed}'}  # 下载从第100字节到第200字节的内容  
     response = requests.get(url, headers=headers, stream=True)  
@@ -67,10 +70,11 @@ def multDownload(url,saveName,thr=50):
   dlths=[]
   for i in range(thr):
     _ed=_currsiz+_eachsiz-1
-    if _ed>content_size-1: ed=content_size-1
+    if _ed>content_size-1: ed=None
     dlths.append(
       threading.Thread(target=downloadPrt,args=(i, url,_currsiz,_ed))
     )
+    _currsiz+=_eachsiz
   for each in dlths:
     each.start()
   for each in dlths:
@@ -79,12 +83,14 @@ def multDownload(url,saveName,thr=50):
   print('\n' + "全部下载完成！用时%s.2f秒" % (end - start), end="\t")
 
   print('try combine parts:')
-  with open(saveName,'ab') as file:
+  with open(saveName,'ab') as dlfile:
     for i in range(thr):
       with open(f"_tmp/.{i}.tmp",'rb') as t:
-        file.write(t.read())
+        dlfile.write(t.read())
+        t.close()
       os.remove(f"_tmp/.{i}.tmp")
       print(f'\rprt{i} ready!', end='')
     print('\r\r',end='')
     os.removedirs("_tmp")
+    dlfile.close()
   print("\n\tcombine fin!")
