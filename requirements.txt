@@ -1,2 +1,5 @@
 beautifulsoup4
 requests
+wget
+rich
+ssl
