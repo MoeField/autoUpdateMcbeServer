@@ -52,7 +52,7 @@ def multDownload(url,saveName,thr=50):
           f.write(data)
           nonlocal _fsize
           _fsize += len(data)  # 已下载文件大小
-          print('\r'+ '[下载进度]: %s%.2f%%' % (
+          print('\r'+ f'[下载进度]:\t{_fsize}/{content_size}'+' %s%.2f%%' % (
             '>'*int(_fsize*50/content_size), 
             float(_fsize/content_size*100)), end=''
           )
@@ -69,7 +69,7 @@ def multDownload(url,saveName,thr=50):
   dlths=[]
   for i in range(thr):
     _ed=_currsiz+_eachsiz-1
-    if _ed>content_size-1: ed=None
+    if _ed>content_size-1: ed=content_size
     dlths.append(
       threading.Thread(target=downloadPrt,args=(i, url,_currsiz,_ed))
     )
@@ -91,9 +91,17 @@ def multDownload(url,saveName,thr=50):
       print(f'\rprt{i} ready!', end='')
     print('\r\r',end='')
     os.removedirs("_tmp")
+    """
     if "zip" in saveName:
       dlfile.write(
-        b'\xbb\x65\x20\xe1\xbb\x65\x20\xe1\xbb\x65\x75\x78\x0b\x00\x01\x04\x00\x00\x00\x00\x04\x00\x00\x00\x00\x50\x4b\x05\x06\x00\x00\x00\x00\xc4\x19\xc4\x19\x02\x44\x0e\x00\x17\x88\xa7\x03\x00\x00'
+        #b'\xbb\x65\x20\xe1\xbb\x65\x20\xe1\xbb\x65\x75\x78\x0b\x00\x01\x04\x00\x00\x00\x00\x04\x00\x00\x00\x00'+
+        b'\x50\x4b\x05\x06'+
+        b'\x00\x00\x00\x00'+
+        b'\xc4\x19\xc4\x19'+
+        b'\x02\x44\x0e\x00'+
+        b'\x17\x88\xa7\x03'+
+        b'\x00\x00'
       )
+    """
     dlfile.close()
   print("\n\tcombine fin!")
