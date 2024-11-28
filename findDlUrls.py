@@ -1,5 +1,7 @@
 #find the download url of the latest version of minecraft bedrock server
+# usage: python findDlUrls.py [-p prevew] [--sys win/linux]
 
+import argparse
 import requests
 import re
 from bs4 import BeautifulSoup
@@ -9,7 +11,7 @@ zipFeature=r'https://www.minecraft.net/bedrockdedicatedserver/bin-'
 
 def findMcBeServerUrls():
     url = 'https://www.minecraft.net/en-us/download/server/bedrock'
-    print('url: ', url)
+    #print('url: ', url)
     
     headers={#fake headers
         "User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36",
@@ -48,8 +50,17 @@ def findMcBeServerUrls():
     return dict
 
 if __name__ == '__main__':
-    serverVersions = ["win","linux","win-preview","linux-preview"]
+    parser = argparse.ArgumentParser(description='manual to this script')
+    parser.add_argument("-p", type=bool, default=False)
+    parser.add_argument("--sys", type=str, default="linux")
+    args = parser.parse_args()
+    #print(args.sys,args.p)
+    version = args.sys
+    serverVersions = ["win","linux"]
+    if version not in serverVersions:
+        print("--sys only accept 'win'/'linux' !")
+        exit()
+    if args.p: version+="-preview"
     urls = findMcBeServerUrls()
-    for version in serverVersions:
-        print(version, ': ', urls[version])
-    
+    #for version in serverVersions: print(version, ': ', urls[version])
+    print(urls[version])
