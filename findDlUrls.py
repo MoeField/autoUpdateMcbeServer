@@ -4,6 +4,9 @@ import requests
 import re
 from bs4 import BeautifulSoup
 
+zipFeature=r'https://www.minecraft.net/bedrockdedicatedserver/bin-'
+#used tobe "https://minecraft.azureedge.net/bin-"
+
 def findMcBeServerUrls():
     url = 'https://www.minecraft.net/en-us/download/server/bedrock'
     print('url: ', url)
@@ -29,7 +32,7 @@ def findMcBeServerUrls():
     soup = BeautifulSoup(html, 'html.parser')
     urls=[]
     #find download url
-    for element in soup.find_all('a', href=re.compile(r'https://minecraft.azureedge.net/bin-')):
+    for element in soup.find_all('a', href=re.compile(zipFeature)):
         urls.append(element['href'])
     
     dict = {}
