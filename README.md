@@ -17,7 +17,6 @@ python3 -m venv .
 cd ./bin && source activate
 cd ..
 
-python3 -m pip config set global.index-url https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple #for PRC users only, Tsinghua University pip source
 python3 -m pip install -r requirements.txt
 deactivate
 cp update.sh ../update.sh
