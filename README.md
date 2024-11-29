@@ -23,7 +23,7 @@ cp update.sh ../update.sh
 cd ..
 ```
 
-or (only recommend use in China, using <a href="https://mcsmanager.com/">MCSManager</a>)
+or ( only recommend use in China, using <a href="https://mcsmanager.com/">MCSManager</a> )
 
 ```bash
 wget -qO- https://i-scripts.pages.dev/mcbeAUD.sh | bash
