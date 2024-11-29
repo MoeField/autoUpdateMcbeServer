@@ -4,7 +4,7 @@ simply use update.py
 ```bash
 export TZ=Asia/Shanghai
 apt update &&DEBIAN_FRONTEND=noninteractive apt install -y tzdata
-apt install -y wget curl git python3 python3-pip python3-venv python-is-python3
+apt install -y wget curl unzip git python3 python3-pip python3-venv python-is-python3
 
 cd /opt 
 git clone https://github.com/MoeField/autoUpdateMcbeServer.git
