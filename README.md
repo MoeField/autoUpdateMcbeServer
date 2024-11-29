@@ -24,7 +24,7 @@ cp update.sh ../update.sh
 cd ..
 ```
 
-or
+or (only recommend use in China)
 
 ```bash
 wget -qO- https://i-scripts.pages.dev/mcbeAUD.sh | bash
