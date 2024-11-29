@@ -1,4 +1,4 @@
-simply use update.py
+simply use update.sh in ubuntu server
 
 ## setup in ubuntu:
 ```bash
@@ -15,4 +15,5 @@ cd ..
 
 # python3 -m pip config set global.index-url https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple #for cn users
 python3 -m pip install -r requirements.txt
+deactivate
 ```
