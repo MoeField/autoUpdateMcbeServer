@@ -2,7 +2,7 @@
 
 ## setup in ubuntu:
 ```bash
-# run as root
+# run as root (ignore if using docker ubuntu)
 export TZ=Asia/Shanghai #change to your timezone
 apt update &&DEBIAN_FRONTEND=noninteractive apt install -y tzdata
 apt install -y wget curl unzip git python3 python3-pip python3-venv python-is-python3
