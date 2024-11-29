@@ -17,4 +17,4 @@ cd ..
 python3 -m pip install -r requirements.txt
 deactivate
 ```
-simply use <update.sh> in ubuntu server
+simply use `update.sh` in ubuntu server
