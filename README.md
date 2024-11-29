@@ -29,4 +29,7 @@ or ( only recommend use in China, using <a href="https://mcsmanager.com/">MCSMan
 wget -qO- https://i-scripts.pages.dev/mcbeAUD.sh | bash
 ```
 
-then simply `bash update.sh` in ubuntu server
+then simply `bash update.sh` in ubuntu server, 
+your MCBE server will be new installed or updated in `./server` dir.
+
+run your server using `LD_LIBRARY_PATH=. ./bedrock_server` .
