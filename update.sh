@@ -3,7 +3,9 @@ echo "Start update progress"
 #cd to the script folder
 pwd | grep -q "autoUpdateMcbeServer" || { cd autoUpdateMcbeServer; }
 #git pull
-cd ..
+cd ./bin
+source activate
+cd ../..
 #makedir download if not exist then download the server
 [ -d "srv-core-download" ] || { mkdir srv-core-download; }
 cd srv-core-download
