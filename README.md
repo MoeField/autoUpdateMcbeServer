@@ -8,7 +8,8 @@ apt update &&DEBIAN_FRONTEND=noninteractive apt install -y tzdata
 apt install -y wget curl unzip git python3 python3-pip python3-venv python-is-python3
 # exit root
 
-cd /opt #or anywhere you want
+cd /opt/ && mkdir mcsrv && cd mcsrv #or anywhere you want to install server
+
 git clone https://github.com/MoeField/autoUpdateMcbeServer.git
 
 cd ./autoUpdateMcbeServer
@@ -29,7 +30,7 @@ or ( only recommend use in China, using <a href="https://mcsmanager.com/">MCSMan
 wget -qO- https://i-scripts.pages.dev/mcbeAUD.sh | bash
 ```
 
-then simply `bash update.sh` in ubuntu server, 
-your MCBE server will be new installed or updated in `./server` dir.
+then simply `bash update.sh` in ubuntu server (you may need to check contents in `update.sh`), 
+your MCBE server will be new installed or updated.
 
 run your server using `LD_LIBRARY_PATH=. ./bedrock_server` .
