@@ -4,6 +4,11 @@
 ```bash
 curl -o "update.sh" "https://github.com/MoeField/autoUpdateMcbeServer/raw/refs/heads/main/update.sh"
 ```
+or (you cannot connect to github for some reason)
+```
+curl -o "update.sh" "https://i-scripts.pages.dev/mcbeupd.sh"
+```
+
 simply run 
 ```bash
 bash update.sh
