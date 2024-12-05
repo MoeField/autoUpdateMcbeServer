@@ -27,7 +27,7 @@ cd ..
 or ( only recommend use in China, using <a href="https://mcsmanager.com/">MCSManager</a> )
 
 ```bash
-wget -qO- https://i-scripts.pages.dev/mcbeAUD.sh | bash
+sudo wget -qO- https://i-scripts.pages.dev/mcbeAUD.sh | bash
 ```
 
 then simply `bash update.sh` in ubuntu server (you may need to check contents in `update.sh`), 
