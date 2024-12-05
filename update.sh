@@ -1,4 +1,8 @@
 #!/bin/bash
+#
+# This file isn't part of anything. 
+# Copyright (C) 2024 UponGnd, Do Whatever you want except remove this line.
+#
 
 # Function to find the download URLs of the latest version of Minecraft Bedrock server
 function findurl(){
