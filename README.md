@@ -1,5 +1,5 @@
 # auto update mcbe server in ubuntu server enviroment
-
+*curl* required for this script.
 ## setup in ubuntu:
 ```bash
 curl -o "update.sh" "https://github.com/MoeField/autoUpdateMcbeServer/raw/refs/heads/main/update.sh"
