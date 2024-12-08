@@ -9,7 +9,7 @@ or (you cannot connect to github for some reason)
 curl -o "update.sh" "https://i-scripts.pages.dev/mcbeupd.sh"
 ```
 
-simply run 
+simply run (After Properly back up your data)
 ```bash
 bash update.sh
 ``` 
