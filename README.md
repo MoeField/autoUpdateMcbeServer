@@ -5,7 +5,9 @@
 curl -o "update.sh" "https://github.com/MoeField/autoUpdateMcbeServer/raw/refs/heads/main/update.sh"
 ```
 or (you cannot connect to github for some reason)
-```
+```bash
+curl -o "update.sh" "https://gitee.com/UndeadCore/autoUpdateMcbeServer/raw/main/update.sh"
+#or
 curl -o "update.sh" "https://i-scripts.pages.dev/mcbeupd.sh"
 ```
 
